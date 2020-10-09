@@ -9,7 +9,6 @@ jobs:
         image: postgres:9.3
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
           POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --no-locale"
         ports:
           - 5432:5432
@@ -23,8 +22,6 @@ jobs:
         run: docker ps -a
         
       - name: install psql
-        env:
-          PGPASSWORD: 'password'
         run: |
           sudo apt-fast install -y postgresql-client
           psql -h 127.0.0.1 -U postgres -c "create table a ( b integer, c text ); insert into a values(1, '😊');"
