@@ -24,7 +24,6 @@ jobs:
       - name: install psql
         run: |
           sudo apt-fast install -y postgresql-client
-          psql -h 127.0.0.1 -U postgres -c "create table a ( b integer, c text ); insert into a values(1, '😊');"
-          psql -h 127.0.0.1 -U postgres -c "select * from a;"
+          psql -h 127.0.0.1 -U postgres -f ./init.sql
           ls -la
       
