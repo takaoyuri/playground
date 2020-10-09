@@ -10,6 +10,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
+          POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --no-locale"
         ports:
           - 5432:5432
           # needed because the postgres container does not provide a healthcheck
@@ -26,6 +27,6 @@ jobs:
           PGPASSWORD: 'password'
         run: |
           sudo apt-fast install -y postgresql-client
-          psql -h 127.0.0.1 -U postgres -c "create table a ( b integer ); insert into a values(1);"
+          psql -h 127.0.0.1 -U postgres -c "create table a ( b integer, c text ); insert into a values(1, '😊');"
           psql -h 127.0.0.1 -U postgres -c "select * from a;"
       
