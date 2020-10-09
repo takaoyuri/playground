@@ -3,17 +3,12 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-18.04
-    services:
-      postgres:
-        image: postgres:11
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
-        ports:
-          - 5432:5432
-          # needed because the postgres container does not provide a healthcheck
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - name: Checkout
         uses: actions/checkout@master
       
+      - uses: danielweller-swp/postgresql-action@v2
+        with:
+          postgresql version: '9.4'  # See https://hub.docker.com/_/postgres for available versions
+          postgresql init scripts: 'init-db'
+          postgresql conf: 'max_prepared_transactions=100'
