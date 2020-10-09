@@ -18,4 +18,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - name: docker ps
-        run: docker ps
+        run: docker ps -a
