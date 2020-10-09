@@ -26,6 +26,6 @@ jobs:
           PGPASSWORD: 'password'
         run: |
           sudo apt-fast install -y postgresql-client
-          psql -h 127.0.0.1 -U postgres -c "create table a ( b integer );"
-          psql -h 127.0.0.1 -U postgres -c "create table a ( b integer );"
+          psql -h 127.0.0.1 -U postgres -c "create table a ( b integer ); insert into a values(1);"
+          psql -h 127.0.0.1 -U postgres -c "select * from a;"
       
