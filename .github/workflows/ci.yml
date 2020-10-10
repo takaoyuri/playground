@@ -33,3 +33,10 @@ jobs:
             PG_HOST: 127.0.0.1
             PG_USER: postgres
         run: php ./php/index.php
+
+      - uses: denolib/setup-deno@v2
+        with:
+          deno-version: v1.x
+      - run: |
+        deno --version
+        deno run https://deno.land/std/examples/welcome.ts
