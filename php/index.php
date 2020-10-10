@@ -1,3 +1,2 @@
 <?php
-echo $_ENV['PG_HOST'];
-echo $_ENV['PG_USER'];
+echo getenv('PG_HOST');
