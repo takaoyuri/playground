@@ -29,5 +29,8 @@ jobs:
         with:
           php-version: '7.4'
       
-      - name: run php
+      - name: run php aaa
+        env:
+            PG_HOST: 127.0.0.1
+            PG_USER: postgres
         run: php -v
