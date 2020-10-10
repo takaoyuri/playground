@@ -30,5 +30,4 @@ jobs:
           php-version: '7.4'
       
       - name: run php
-        run:
-          php
+        run: php -v
