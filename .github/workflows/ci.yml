@@ -17,9 +17,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      
-      - name: docker ps
-        run: docker ps -a
         
       - name: install psql
         run: |
