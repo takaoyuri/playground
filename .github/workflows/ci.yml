@@ -38,5 +38,5 @@ jobs:
         with:
           deno-version: v1.x
       - run: |
-        deno --version
-        deno run https://deno.land/std/examples/welcome.ts
+          deno --version
+          deno run https://deno.land/std/examples/welcome.ts
