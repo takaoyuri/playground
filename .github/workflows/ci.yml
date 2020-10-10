@@ -33,4 +33,4 @@ jobs:
         env:
             PG_HOST: 127.0.0.1
             PG_USER: postgres
-        run: php -v
+        run: php ./php/index.php
